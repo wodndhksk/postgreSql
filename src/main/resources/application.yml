@@ -1,0 +1,35 @@
+server:
+  address: localhost
+  port: 8080
+
+spring:
+  application:
+    name: dev
+
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      enabled: true
+
+  datasource:
+    ### h2 database
+    #    url: jdbc:h2:tcp://localhost/~/test
+    #    username: sa
+    #    password:
+    #    driver-class-name: org.h2.Driver
+    ### postgreSql db
+    url: jdbc:postgresql://127.0.0.1:5432/testdb
+    username: jwkim995
+    password: 1234
+
+  jpa:
+    database: postgresql
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        globally_quoted_identifiers: true
