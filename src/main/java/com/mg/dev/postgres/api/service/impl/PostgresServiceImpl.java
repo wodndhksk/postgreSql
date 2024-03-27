@@ -1,5 +1,6 @@
 package com.mg.dev.postgres.api.service.impl;
 
+import com.mg.dev.postgres.aop.annotation.LogTrace;
 import com.mg.dev.postgres.api.PostgresEntity;
 import com.mg.dev.postgres.api.service.PostgresService;
 import com.mg.dev.postgres.api.repository.PostgresRepository;
@@ -18,6 +19,7 @@ import java.util.stream.Collectors;
 @Service
 public class PostgresServiceImpl implements PostgresService {
     private final PostgresRepository postgresRepository;
+    @LogTrace
     @Override
     public List<PostgresSearchDto> search() {
         List<PostgresEntity> entities = postgresRepository.search();
