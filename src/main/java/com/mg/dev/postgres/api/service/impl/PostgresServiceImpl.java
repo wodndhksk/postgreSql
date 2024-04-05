@@ -4,13 +4,11 @@ import com.mg.dev.postgres.aop.annotation.LogTrace;
 import com.mg.dev.postgres.api.PostgresEntity;
 import com.mg.dev.postgres.api.service.PostgresService;
 import com.mg.dev.postgres.api.repository.PostgresRepository;
-import com.mg.dev.postgres.common.dto.PostgresSearchDto;
+import com.mg.dev.postgres.dto.PostgresSearchDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 

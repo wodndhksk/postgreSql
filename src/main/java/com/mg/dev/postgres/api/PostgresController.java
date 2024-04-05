@@ -1,7 +1,7 @@
 package com.mg.dev.postgres.api;
 
 import com.mg.dev.postgres.api.service.PostgresService;
-import com.mg.dev.postgres.common.dto.PostgresSearchDto;
+import com.mg.dev.postgres.dto.PostgresSearchDto;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;

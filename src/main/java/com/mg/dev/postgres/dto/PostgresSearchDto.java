@@ -1,4 +1,4 @@
-package com.mg.dev.postgres.common.dto;
+package com.mg.dev.postgres.dto;
 
 import lombok.AccessLevel;
 import lombok.Builder;

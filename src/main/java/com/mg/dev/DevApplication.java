@@ -1,6 +1,6 @@
 package com.mg.dev;
 
-import com.mg.dev.postgres.aop.advice.LogTrace;
+import com.mg.dev.postgres.aop.advice.LogTraceAspect;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import jakarta.persistence.EntityManager;
 import org.springframework.boot.SpringApplication;
@@ -11,7 +11,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @SpringBootApplication
 @EnableJpaAuditing
-@Import(LogTrace.class)
+@Import(LogTraceAspect.class)
 public class DevApplication {
 
 	public static void main(String[] args) {

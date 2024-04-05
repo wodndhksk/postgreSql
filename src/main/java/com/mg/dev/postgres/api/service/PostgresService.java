@@ -1,6 +1,6 @@
 package com.mg.dev.postgres.api.service;
 
-import com.mg.dev.postgres.common.dto.PostgresSearchDto;
+import com.mg.dev.postgres.dto.PostgresSearchDto;
 
 import java.util.List;
 

@@ -1,21 +1,18 @@
 package com.mg.dev.postgres.aop.advice;
 
+import com.mg.dev.postgres.aop.annotation.LogTrace;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.util.StopWatch;
 
 @Slf4j
 @Aspect
-public class LogTrace {
+public class LogTraceAspect {
 
-    @Pointcut("@annotation(com.mg.dev.postgres.aop.annotation.LogTrace)")
-    public void logTrace() {};
-
-    @Around("logTrace()")
-    public void doTrace(ProceedingJoinPoint joinPoint) throws Throwable {
+    @Around("@annotation(annotation)")
+    public void doTrace(ProceedingJoinPoint joinPoint, LogTrace annotation) throws Throwable {
         Object[] args = joinPoint.getArgs();
 
         StopWatch watch = new StopWatch();
