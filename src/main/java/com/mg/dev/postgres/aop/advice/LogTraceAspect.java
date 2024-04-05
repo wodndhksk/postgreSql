@@ -12,18 +12,18 @@ import org.springframework.util.StopWatch;
 public class LogTraceAspect {
 
     @Around("@annotation(annotation)")
-    public void doTrace(ProceedingJoinPoint joinPoint, LogTrace annotation) throws Throwable {
+    public Object doTrace(ProceedingJoinPoint joinPoint, LogTrace annotation) throws Throwable {
         Object[] args = joinPoint.getArgs();
 
         StopWatch watch = new StopWatch();
         watch.start("doTrace");
 
         log.info("[Trace] {}, args={}", joinPoint.getSignature(), args);
-        joinPoint.proceed();
+        Object proceed = joinPoint.proceed();
         watch.stop();
 
         log.info("proceed Time={}ms", watch.getTotalTimeMillis());
-
+        return proceed;
     }
 
 }
