@@ -1,4 +1,4 @@
-package com.mg.dev.postgres.api;
+package com.mg.dev.postgres.api.postgresql;
 
 import com.mg.dev.postgres.common.BaseEntity;
 import jakarta.persistence.Column;

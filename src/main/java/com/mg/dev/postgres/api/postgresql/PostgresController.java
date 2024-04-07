@@ -1,6 +1,6 @@
-package com.mg.dev.postgres.api;
+package com.mg.dev.postgres.api.postgresql;
 
-import com.mg.dev.postgres.api.service.PostgresService;
+import com.mg.dev.postgres.api.postgresql.service.PostgresService;
 import com.mg.dev.postgres.dto.PostgresSearchDto;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;

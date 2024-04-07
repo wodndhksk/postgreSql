@@ -1,7 +1,6 @@
-package com.mg.dev.postgres.api.service;
+package com.mg.dev.postgres.api.postgresql.service;
 
 import com.mg.dev.postgres.dto.PostgresSearchDto;
-import org.springframework.stereotype.Component;
 
 import java.util.List;
 

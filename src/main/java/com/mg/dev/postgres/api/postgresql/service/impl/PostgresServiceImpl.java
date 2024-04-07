@@ -1,9 +1,9 @@
-package com.mg.dev.postgres.api.service.impl;
+package com.mg.dev.postgres.api.postgresql.service.impl;
 
 import com.mg.dev.postgres.aop.annotation.LogTrace;
-import com.mg.dev.postgres.api.PostgresEntity;
-import com.mg.dev.postgres.api.service.PostgresService;
-import com.mg.dev.postgres.api.repository.PostgresRepository;
+import com.mg.dev.postgres.api.postgresql.PostgresEntity;
+import com.mg.dev.postgres.api.postgresql.service.PostgresService;
+import com.mg.dev.postgres.api.postgresql.repository.PostgresRepository;
 import com.mg.dev.postgres.dto.PostgresSearchDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

@@ -1,6 +1,6 @@
-package com.mg.dev.postgres.api.repository;
+package com.mg.dev.postgres.api.postgresql.repository;
 
-import com.mg.dev.postgres.api.PostgresEntity;
+import com.mg.dev.postgres.api.postgresql.PostgresEntity;
 import com.mg.dev.postgres.api.QPostgresEntity;
 import com.querydsl.jpa.JPAExpressions;
 import com.querydsl.jpa.impl.JPAQueryFactory;
