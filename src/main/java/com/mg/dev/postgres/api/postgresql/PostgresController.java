@@ -1,7 +1,7 @@
 package com.mg.dev.postgres.api.postgresql;
 
 import com.mg.dev.postgres.api.postgresql.service.PostgresService;
-import com.mg.dev.postgres.dto.PostgresSearchDto;
+import com.mg.dev.postgres.dto.PostgresqlDto;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,13 +23,13 @@ public class PostgresController {
      */
     @PostConstruct
     public void testInsert() {
-        List<PostgresSearchDto> list = new ArrayList<>();
+        List<PostgresqlDto> list = new ArrayList<>();
         int max = 10;
         String testNm = "test-";
         String testTitle = "TEST TITLE-";
 
         for(int i=0; i<max; i++){
-            PostgresSearchDto dto = PostgresSearchDto.builder()
+            PostgresqlDto dto = PostgresqlDto.builder()
                     .num(i)
                     .title(testTitle + i)
                     .name(testNm + i)
@@ -46,7 +46,7 @@ public class PostgresController {
     }
 
     @GetMapping("/search")
-    public List<PostgresSearchDto> search() {
+    public List<PostgresqlDto> search() {
         return postgresService.search();
     }
 

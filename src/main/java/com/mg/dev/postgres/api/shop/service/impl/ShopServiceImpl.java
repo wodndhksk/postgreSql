@@ -1,9 +1,10 @@
-package com.mg.dev.postgres.api.Store.service.impl;
+package com.mg.dev.postgres.api.shop.service.impl;
 
-import com.mg.dev.postgres.api.Store.ShopEntity;
-import com.mg.dev.postgres.api.Store.dto.ShopDto;
-import com.mg.dev.postgres.api.Store.respository.ShopRepository;
-import com.mg.dev.postgres.api.Store.service.ShopService;
+import com.mg.dev.postgres.api.shop.ShopEntity;
+import com.mg.dev.postgres.api.shop.dto.ShopReqDto;
+import com.mg.dev.postgres.api.shop.dto.ShopResDto;
+import com.mg.dev.postgres.api.shop.respository.ShopRepository;
+import com.mg.dev.postgres.api.shop.service.ShopService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -21,7 +22,7 @@ public class ShopServiceImpl implements ShopService {
      * @param param
      */
     @Override
-    public void insert(List<ShopDto> param) {
+    public void insert(List<ShopReqDto> param) {
         List<ShopEntity> result = param.stream().map((dto) -> {
             ShopEntity store = ShopEntity.builder()
                     .name(dto.getName())
@@ -37,7 +38,7 @@ public class ShopServiceImpl implements ShopService {
     }
 
     @Override
-    public List<ShopDto> searchStores(ShopDto param) {
-        return null;
+    public List<ShopResDto> searchStores(ShopReqDto param) {
+        return shopRepository.shopEntityList(param);
     }
 }

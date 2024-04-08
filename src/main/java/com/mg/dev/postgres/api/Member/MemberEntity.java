@@ -1,6 +1,6 @@
 package com.mg.dev.postgres.api.Member;
 
-import com.mg.dev.postgres.api.Store.ShopEntity;
+import com.mg.dev.postgres.api.shop.ShopEntity;
 import com.mg.dev.postgres.common.BaseEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

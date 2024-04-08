@@ -4,7 +4,7 @@ import com.mg.dev.postgres.aop.annotation.LogTrace;
 import com.mg.dev.postgres.api.postgresql.PostgresEntity;
 import com.mg.dev.postgres.api.postgresql.service.PostgresService;
 import com.mg.dev.postgres.api.postgresql.repository.PostgresRepository;
-import com.mg.dev.postgres.dto.PostgresSearchDto;
+import com.mg.dev.postgres.dto.PostgresqlDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -19,10 +19,10 @@ public class PostgresServiceImpl implements PostgresService {
     private final PostgresRepository postgresRepository;
     @LogTrace
     @Override
-    public List<PostgresSearchDto> search() {
+    public List<PostgresqlDto> search() {
         List<PostgresEntity> entities = postgresRepository.search();
-        List<PostgresSearchDto> searchDtoList = entities.stream().map((e) -> {
-            PostgresSearchDto searchDto = PostgresSearchDto.builder()
+        List<PostgresqlDto> searchDtoList = entities.stream().map((e) -> {
+            PostgresqlDto searchDto = PostgresqlDto.builder()
                     .num(e.getNum())
                     .title(e.getTitle())
                     .name(e.getName())
@@ -35,7 +35,7 @@ public class PostgresServiceImpl implements PostgresService {
     }
 
     @Override
-    public void insert(List<PostgresSearchDto> dto) {
+    public void insert(List<PostgresqlDto> dto) {
         List<PostgresEntity> entities = dto.stream().map((d) -> {
             PostgresEntity entity = PostgresEntity.builder()
                     .num(d.getNum())

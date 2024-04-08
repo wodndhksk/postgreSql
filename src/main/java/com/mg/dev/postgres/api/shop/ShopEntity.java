@@ -1,4 +1,4 @@
-package com.mg.dev.postgres.api.Store;
+package com.mg.dev.postgres.api.shop;
 
 import com.mg.dev.postgres.api.Member.MemberEntity;
 import jakarta.persistence.Column;
@@ -38,7 +38,7 @@ public class ShopEntity {
     @Column(length = 500)
     private String link;
 
-    @Column(length = 25)
+    @Column(length = 50)
     private String number;
 
     @ManyToOne(fetch = FetchType.LAZY)

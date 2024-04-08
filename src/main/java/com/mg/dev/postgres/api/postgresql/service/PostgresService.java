@@ -1,11 +1,11 @@
 package com.mg.dev.postgres.api.postgresql.service;
 
-import com.mg.dev.postgres.dto.PostgresSearchDto;
+import com.mg.dev.postgres.dto.PostgresqlDto;
 
 import java.util.List;
 
 public interface PostgresService {
-    List<PostgresSearchDto> search();
+    List<PostgresqlDto> search();
 
-    void insert(List<PostgresSearchDto> dto);
+    void insert(List<PostgresqlDto> dto);
 }

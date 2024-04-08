@@ -9,14 +9,14 @@ import lombok.ToString;
 @Getter
 @ToString
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class PostgresSearchDto {
+public class PostgresqlDto {
     private int num;
     private String title;
     private String name;
     private String description;
 
     @Builder
-    public PostgresSearchDto(int num, String title, String name, String description) {
+    public PostgresqlDto(int num, String title, String name, String description) {
         this.num = num;
         this.title = title;
         this.name = name;
