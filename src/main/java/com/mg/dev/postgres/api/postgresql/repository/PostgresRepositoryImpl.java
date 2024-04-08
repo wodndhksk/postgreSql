@@ -1,7 +1,7 @@
 package com.mg.dev.postgres.api.postgresql.repository;
 
 import com.mg.dev.postgres.api.postgresql.PostgresEntity;
-import com.mg.dev.postgres.api.QPostgresEntity;
+import com.mg.dev.postgres.api.postgresql.QPostgresEntity;
 import com.querydsl.jpa.JPAExpressions;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import jakarta.persistence.EntityManager;
@@ -9,7 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
 
-import static com.mg.dev.postgres.api.QPostgresEntity.postgresEntity;
+import static com.mg.dev.postgres.api.postgresql.QPostgresEntity.postgresEntity;
 
 @Slf4j
 public class PostgresRepositoryImpl implements PostgresRepositoryCustom {
