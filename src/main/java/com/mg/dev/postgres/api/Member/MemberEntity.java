@@ -1,6 +1,6 @@
 package com.mg.dev.postgres.api.Member;
 
-import com.mg.dev.postgres.api.Store.StoreEntity;
+import com.mg.dev.postgres.api.Store.ShopEntity;
 import com.mg.dev.postgres.common.BaseEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -20,7 +20,7 @@ import java.util.List;
  * Member entity
  */
 @Entity
-@ToString(exclude = "stores")
+@ToString(exclude = "shopList")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class MemberEntity extends BaseEntity {
@@ -38,5 +38,5 @@ public class MemberEntity extends BaseEntity {
     private LocalDateTime birthday;
 
     @OneToMany(mappedBy = "member")
-    private List<StoreEntity> stores;
+    private List<ShopEntity> shopList;
 }

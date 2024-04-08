@@ -22,7 +22,7 @@ import lombok.ToString;
 @ToString(exclude = "member")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class StoreEntity {
+public class ShopEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "store_id")
@@ -50,7 +50,7 @@ public class StoreEntity {
 
 
     @Builder
-    public StoreEntity(String name, String city, String addr, String link, String number) {
+    public ShopEntity(String name, String city, String addr, String link, String number) {
         this.name = name;
         this.city = city;
         this.addr = addr;

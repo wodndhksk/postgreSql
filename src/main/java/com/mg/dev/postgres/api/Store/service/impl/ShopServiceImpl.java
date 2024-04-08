@@ -1,9 +1,9 @@
 package com.mg.dev.postgres.api.Store.service.impl;
 
-import com.mg.dev.postgres.api.Store.StoreEntity;
-import com.mg.dev.postgres.api.Store.dto.StoreDto;
-import com.mg.dev.postgres.api.Store.respository.StoreRepository;
-import com.mg.dev.postgres.api.Store.service.StoreService;
+import com.mg.dev.postgres.api.Store.ShopEntity;
+import com.mg.dev.postgres.api.Store.dto.ShopDto;
+import com.mg.dev.postgres.api.Store.respository.ShopRepository;
+import com.mg.dev.postgres.api.Store.service.ShopService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -12,18 +12,18 @@ import java.util.stream.Collectors;
 
 @Component
 @RequiredArgsConstructor
-public class StoreServiceImpl implements StoreService {
+public class ShopServiceImpl implements ShopService {
 
-    private final StoreRepository storeRepository;
+    private final ShopRepository shopRepository;
 
     /**
      * Store 정보 여러개 저장
      * @param param
      */
     @Override
-    public void insert(List<StoreDto> param) {
-        List<StoreEntity> result = param.stream().map((dto) -> {
-            StoreEntity store = StoreEntity.builder()
+    public void insert(List<ShopDto> param) {
+        List<ShopEntity> result = param.stream().map((dto) -> {
+            ShopEntity store = ShopEntity.builder()
                     .name(dto.getName())
                     .city(dto.getCity())
                     .addr(dto.getAddr())
@@ -33,11 +33,11 @@ public class StoreServiceImpl implements StoreService {
             return store;
         }).collect(Collectors.toList());
 
-        storeRepository.saveAll(result);
+        shopRepository.saveAll(result);
     }
 
     @Override
-    public List<StoreDto> searchStores(StoreDto param) {
+    public List<ShopDto> searchStores(ShopDto param) {
         return null;
     }
 }
