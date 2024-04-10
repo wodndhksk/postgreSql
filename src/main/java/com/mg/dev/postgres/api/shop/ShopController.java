@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -38,8 +37,8 @@ public class ShopController {
                     .name(testNm + i)
                     .city("testCity" + i)
                     .addr("testAddress" + i)
-                    .number(UUID.randomUUID().toString())
-                    .link("010-1111-111"+i)
+                    .number("010-1111-111"+i)
+                    .link("https://www.test?param=" +UUID.randomUUID().toString())
                     .build();
             list.add(dto);
         }
