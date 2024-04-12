@@ -3,6 +3,7 @@ package com.mg.dev.postgres.common.repository;
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 
 import java.util.function.Supplier;
 
@@ -21,7 +22,4 @@ public class QueryDslNullSafer {
         }
     }
 
-    public String strNullSafe(String str) {
-        return str != null? str : "";
-    }
 }

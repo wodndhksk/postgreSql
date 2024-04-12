@@ -10,6 +10,7 @@ import com.querydsl.jpa.impl.JPAQueryFactory;
 import jakarta.persistence.EntityManager;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.StringUtils;
 
 import java.util.List;
 
@@ -56,27 +57,29 @@ public class ShopRepositoryImpl implements ShopRepositoryCustom{
      * 1. where 절의 조건 값이 null 일 경우 NullPointException 발생 (null.or(cityEq(param)..) 가 될수 없기에)
      * 2. where 절 조건이 많을 경우 BooleanBuilder 를 사용하는게 유리하다.
      */
-    private BooleanBuilder isParamBlank(String param, BooleanExpression expression) {
-        BooleanExpression booleanExpression =
-                nullSafer.strNullSafe(param).isBlank() ? null : expression;
-
-        return nullSafer.nullSafeBuilder(() -> booleanExpression);
+    private BooleanBuilder paramNullSafer(BooleanExpression expression) {
+        return nullSafer.nullSafeBuilder(() -> expression);
     }
 
+    /**
+     * nameEq(param)이 null 이 되는 상황 방지 (null.or() 오류 방지)
+     * @param param
+     * @return
+     */
     private BooleanBuilder nameEq(ShopReqDto param) {
-        return isParamBlank(param.getName(),
-                shopEntity.name.eq(nullSafer.strNullSafe(param.getName())));
+        return paramNullSafer(StringUtils.hasText(param.getName())?
+                shopEntity.name.eq(param.getName()) : null);
     }
-    private BooleanBuilder cityEq(ShopReqDto param) {
-        return isParamBlank(param.getCity(),
-                shopEntity.city.eq(nullSafer.strNullSafe(param.getCity())));
+    private BooleanExpression cityEq(ShopReqDto param) {
+        return StringUtils.hasText(param.getCity())?
+                shopEntity.city.eq(param.getCity()) : null;
     }
-    private BooleanBuilder addrContain(ShopReqDto param) {
-        return isParamBlank(param.getAddr(),
-                shopEntity.addr.contains(nullSafer.strNullSafe(param.getAddr())));
+    private BooleanExpression addrContain(ShopReqDto param) {
+        return StringUtils.hasText(param.getAddr())?
+                shopEntity.addr.contains(param.getAddr()) : null;
     }
-    private BooleanBuilder numberEq(ShopReqDto param) {
-        return isParamBlank(param.getNumber(),
-                shopEntity.number.eq(nullSafer.strNullSafe(param.getNumber())));
+    private BooleanExpression numberEq(ShopReqDto param) {
+        return StringUtils.hasText(param.getNumber())?
+                shopEntity.number.eq(param.getNumber()) : null;
     }
 }

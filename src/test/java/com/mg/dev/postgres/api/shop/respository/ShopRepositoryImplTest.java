@@ -33,12 +33,15 @@ class ShopRepositoryImplTest {
         ShopReqDto shopReqDto = ShopReqDto.builder().build();
         log.info("ShopReqDto log={}", shopReqDto);
 
-        try {
-            shopRepository.shopEntityList(shopReqDto);
-        }catch (IllegalArgumentException e){
-            Assertions.assertThrows(IllegalArgumentException.class,
-                    () -> shopRepository.shopEntityList(shopReqDto));
-        }
+        shopRepository.shopEntityList(shopReqDto);
+//        try {
+//            shopRepository.shopEntityList(shopReqDto);
+//            log.info("정상");
+//        }catch (IllegalArgumentException e){
+//            log.info("오류");
+//            Assertions.assertThrows(IllegalArgumentException.class,
+//                    () -> shopRepository.shopEntityList(shopReqDto));
+//        }
 
     }
 
