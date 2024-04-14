@@ -12,6 +12,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
@@ -31,10 +32,17 @@ public class MemberFavoriteEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
+    @Column(name = "member_id")
     private MemberEntity member;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "shop_id")
+    @Column(name = "shop_id")
     private ShopEntity shop;
 
+    @Builder
+    public MemberFavoriteEntity(MemberEntity member, ShopEntity shop) {
+        this.member = member;
+        this.shop = shop;
+    }
 }

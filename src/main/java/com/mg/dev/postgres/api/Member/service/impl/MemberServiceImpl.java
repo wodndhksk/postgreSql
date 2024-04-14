@@ -1,0 +1,41 @@
+package com.mg.dev.postgres.api.Member.service.impl;
+
+import com.mg.dev.postgres.api.Member.MemberEntity;
+import com.mg.dev.postgres.api.Member.dto.MemberFavoriteShopDto;
+import com.mg.dev.postgres.api.Member.dto.MemberReqDto;
+import com.mg.dev.postgres.api.Member.repository.MemberFavoriteShopRepository;
+import com.mg.dev.postgres.api.Member.repository.MemberRepository;
+import com.mg.dev.postgres.api.Member.service.MemberService;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
+
+@Slf4j
+@RequiredArgsConstructor
+@Component
+public class MemberServiceImpl implements MemberService {
+    private final MemberRepository memberRepository;
+    private final MemberFavoriteShopRepository favoriteShopRepository;
+
+    @Override
+    public void insertMember(MemberReqDto dto) {
+        MemberEntity member = MemberEntity.builder()
+                .name(dto.getName())
+                .nickname(dto.getNickname())
+                .birthday(dto.getBirthday())
+                .build();
+        memberRepository.save(member);
+    }
+
+    @Override
+    public void insertMemberFavoriteShop(MemberFavoriteShopDto dto) {
+        if(isDuplicate(dto) > 0) {
+            log.info("중복!");
+        }
+
+    }
+
+    private int isDuplicate(MemberFavoriteShopDto dto) {
+        favoriteShopRepository.memberFavoriteShopDupCount(dto);
+    }
+}
