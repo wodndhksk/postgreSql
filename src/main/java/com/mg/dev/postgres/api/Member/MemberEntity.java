@@ -8,7 +8,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
@@ -22,6 +24,7 @@ import java.util.List;
 @Entity
 @ToString(exclude = "shopList")
 @Getter
+@Table(name = "member")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class MemberEntity extends BaseEntity {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,4 +42,15 @@ public class MemberEntity extends BaseEntity {
 
     @OneToMany(mappedBy = "member")
     private List<ShopEntity> shopList;
+
+    @OneToMany(mappedBy = "member")
+    private List<MemberFavoriteEntity> memberfavoriteList;
+
+    @Builder
+    public MemberEntity(String name, String nickname, LocalDateTime birthday, List<ShopEntity> shopList) {
+        this.name = name;
+        this.nickname = nickname;
+        this.birthday = birthday;
+        this.shopList = shopList;
+    }
 }
