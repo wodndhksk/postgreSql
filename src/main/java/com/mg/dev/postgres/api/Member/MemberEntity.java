@@ -13,6 +13,7 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 
 import java.time.LocalDateTime;
@@ -24,6 +25,7 @@ import java.util.List;
 @Entity
 @ToString(exclude = "shopList")
 @Getter
+@Setter
 @Table(name = "member")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class MemberEntity extends BaseEntity {
@@ -42,9 +44,9 @@ public class MemberEntity extends BaseEntity {
 
     @OneToMany(mappedBy = "member")
     private List<ShopEntity> shopList;
-
-    @OneToMany(mappedBy = "member")
-    private List<MemberFavoriteEntity> memberfavoriteList;
+//
+//    @OneToMany(mappedBy = "member")
+//    private List<MemberFavoriteEntity> memberfavoriteList;
 
     @Builder
     public MemberEntity(String name, String nickname, LocalDateTime birthday, List<ShopEntity> shopList) {
