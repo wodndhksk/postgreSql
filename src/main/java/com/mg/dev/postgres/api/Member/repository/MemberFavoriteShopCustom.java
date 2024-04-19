@@ -1,10 +1,8 @@
 package com.mg.dev.postgres.api.Member.repository;
 
-import com.mg.dev.postgres.api.Member.MemberFavoriteEntity;
 import com.mg.dev.postgres.api.Member.dto.MemberFavoriteShopDto;
-
-import java.util.List;
+import org.springframework.stereotype.Component;
 
 public interface MemberFavoriteShopCustom {
-//    List<MemberFavoriteEntity> memberFavoriteShopDupCount(MemberFavoriteShopDto dto);
+//    int memberFavoriteShopDupCount(MemberFavoriteShopDto dto);
 }

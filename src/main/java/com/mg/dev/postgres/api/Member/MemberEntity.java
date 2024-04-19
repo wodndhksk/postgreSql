@@ -44,9 +44,9 @@ public class MemberEntity extends BaseEntity {
 
     @OneToMany(mappedBy = "member")
     private List<ShopEntity> shopList;
-//
-//    @OneToMany(mappedBy = "member")
-//    private List<MemberFavoriteEntity> memberfavoriteList;
+
+    @OneToMany(mappedBy = "member")
+    private List<MemberFavoriteEntity> memberfavoriteList;
 
     @Builder
     public MemberEntity(String name, String nickname, LocalDateTime birthday, List<ShopEntity> shopList) {

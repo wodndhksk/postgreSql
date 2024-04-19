@@ -18,4 +18,16 @@ public class MemberFavoriteShopImpl implements MemberFavoriteShopCustom {
         this.queryFactory = new JPAQueryFactory(em);
     }
 
+//    @Override
+    public int memberFavoriteShopDupCount(MemberFavoriteShopDto dto) {
+        List<MemberFavoriteEntity> fetch = queryFactory
+                .selectFrom(memberFavoriteEntity)
+                .where(
+                        memberFavoriteEntity.member.id.eq(dto.getMemberId())
+                                .and(memberFavoriteEntity.shop.id.eq(dto.getShopId()))
+                )
+                .fetch();
+
+        return 0;
+    }
 }

@@ -1,6 +1,7 @@
 package com.mg.dev.postgres.api.shop;
 
 import com.mg.dev.postgres.api.Member.MemberEntity;
+import com.mg.dev.postgres.api.Member.MemberFavoriteEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -9,12 +10,16 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
+
+import java.util.List;
 
 /**
  * 가게 entity
@@ -22,6 +27,7 @@ import lombok.ToString;
 @Entity
 @ToString(exclude = "member")
 @Getter
+@Setter
 @Table(name = "shop")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class ShopEntity {
@@ -46,6 +52,9 @@ public class ShopEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
     private MemberEntity member;
+
+    @OneToMany(mappedBy = "shop")
+    private List<MemberFavoriteEntity> memberfavoriteList;
 
     //카테고리
     //메뉴
